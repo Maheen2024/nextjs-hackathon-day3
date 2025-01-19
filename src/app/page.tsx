@@ -1,6 +1,7 @@
 
 import Test from "@/components/test";
 import { client } from "@/sanity/sanity-utils";
+import Link from "next/link";
 
 interface Car {
   type: string;
@@ -63,17 +64,20 @@ export default async function Home() {
                   <span className="text-lg font-semibold">
                     ${car.pricePerDay} / day
                   </span>
-                  <a
-                    href={`/cars/${car.slug?.current}`}
-                    className="text-blue-500 hover:text-blue-700"
-                  >
+                  <Link href="DetailCar"><button className="text-blue-500 hover:text-blue-700">
                     View Details
-                  </a>
+                    </button></Link>
+                 
                 </div>
               </div>
             </div>
           ))}
         </div>
+      <section className="button w-full text-center">
+                <Link href={"/CarCategories"}>
+                    <button className="bg-[#3563e9] px-4 py-2 text-white rounded-md mt-5">Show More Cars</button>
+                </Link>
+            </section>
       </div>
       </div>
     );
